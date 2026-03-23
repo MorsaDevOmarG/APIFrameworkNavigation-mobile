@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Inicio from './view/Inicio';
 import NuevoCliente from './view/NuevoCliente';
 import DetallesCliente from './view/DetallesCliente';
+import BarraSuperior from './components/ui/Barra';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ const theme = {
   colors: {
     ...DefaultTheme.colors,
     primary: '#1774f2',
+    accent: '#0655BF',
   },
 };
 console.log(theme);
@@ -33,9 +35,26 @@ const App = () => {
               backgroundColor: theme.colors.primary,
             },
             headerTintColor: theme.colors.surface,
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+            headerTitleAlign: 'center',
           }}
         >
-          <Stack.Screen name="Inicio" component={Inicio} />
+          <Stack.Screen
+            name="Inicio"
+            component={Inicio}
+            options={({ navigation, route }) => ({
+              headerLeft: props => (
+                <BarraSuperior
+                  {...props}
+                  navigation={navigation}
+                  route={route}
+                />
+              ),
+            })}
+          />
+
           <Stack.Screen
             name="NuevoCliente"
             component={NuevoCliente}
@@ -43,6 +62,7 @@ const App = () => {
               title: 'Nuevo Cliente',
             }}
           />
+
           <Stack.Screen
             name="DetallesCliente"
             component={DetallesCliente}
