@@ -6,7 +6,6 @@
 ## Herramientas y/o Tecnologías
 
 - React
-- Frameworks
 - API
 - React Navigation
 
@@ -83,3 +82,15 @@
   - Esto para que funcione, también debemos agregar:
     - **_import { NavigationContainer } from '@react-navigation/native';_**
     - **_import { createNativeStackNavigator } from '@react-navigation/native-stack';_**
+
+- Frameworks
+  - Actualmente hemos escrito todo el código para la apariencia de nuestra app.
+  - Existe una gran cantidad de _framrworks_ para la _UI_ de una app móvil.
+  - Estos _frameworks_ tienen elementos comúnes para el diseño de tus apps como: _CARDS, BUTTONS, FORMS, etc_.
+  - Algunos siguen los lineamientos de: _Material Design_.
+  - Ejemplos:
+    - **React Native Paper**
+      - [Paper](https://reactnativepaper.com/)
+    - **Native Base**
+    - **React Native Elements**
+  -
