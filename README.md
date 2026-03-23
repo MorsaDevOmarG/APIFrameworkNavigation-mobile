@@ -96,6 +96,8 @@
         - **_npm i react-native-vector-icons_**
         - Para saber el nombre y los iconos de: _Vector Icons_, los encontramos en:
           - [VECTOR ICONOS](https://oblador.github.io/react-native-vector-icons/)
+          - _GIST_ de configuración:
+            - [GIST BUILD GRADLE](https://gist.github.com/codigoconjuan/7d02cb231beda08d6a5e53a57efd6f7b)
         - Debemos agregar esta línea en: **android/app/build.gradle**
           - **_apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"_**
         - Buscamos un **APPLY**, en este proyecto encontramos solo: **APPLY PLUGINS**, debajo de esos ponemos esa línea.
