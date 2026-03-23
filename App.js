@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Inicio from './view/Inicio';
+import NuevoCliente from './view/NuevoCliente';
+import DetallesCliente from './view/DetallesCliente';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +19,20 @@ const App = () => {
           initialRouteName="Inicio"
         >
           <Stack.Screen name="Inicio" component={Inicio} />
+          <Stack.Screen
+            name="NuevoCliente"
+            component={NuevoCliente}
+            options={{
+              title: 'Nuevo Cliente',
+            }}
+          />
+          <Stack.Screen
+            name="DetallesCliente"
+            component={DetallesCliente}
+            options={{
+              title: 'Detalles Cliente',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

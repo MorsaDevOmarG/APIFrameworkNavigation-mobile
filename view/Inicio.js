@@ -1,7 +1,11 @@
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Inicio = () => {
-  return <Text>Inicio</Text>;
+  return (
+    <View>
+      <Text>Inicio</Text>
+    </View>
+  );
 };
 
 export default Inicio;
