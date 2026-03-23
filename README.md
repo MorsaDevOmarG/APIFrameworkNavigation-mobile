@@ -89,8 +89,11 @@
   - Estos _frameworks_ tienen elementos comúnes para el diseño de tus apps como: _CARDS, BUTTONS, FORMS, etc_.
   - Algunos siguen los lineamientos de: _Material Design_.
   - Ejemplos:
-    - **React Native Paper**
+    - **React Native Paper (utilizado en este proyecto)**
       - [Paper](https://reactnativepaper.com/)
+      - Instalación:
+        - **_npm i react-native-paper_**
+        - **_npm i react-native-vector-icons_**
     - **Native Base**
     - **React Native Elements**
   -

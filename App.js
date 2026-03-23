@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { Text } from 'react-native';
+import { DefaultTheme, Provider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -10,6 +11,16 @@ import DetallesCliente from './view/DetallesCliente';
 
 const Stack = createNativeStackNavigator();
 
+// DEfinir el Tema UI
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#1774f2',
+  },
+};
+console.log(theme);
+
 const App = () => {
   return (
     <>
@@ -17,6 +28,12 @@ const App = () => {
         <Stack.Navigator
           // Define el componente de la pantalla de inicio
           initialRouteName="Inicio"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: theme.colors.primary,
+            },
+            headerTintColor: theme.colors.surface,
+          }}
         >
           <Stack.Screen name="Inicio" component={Inicio} />
           <Stack.Screen
