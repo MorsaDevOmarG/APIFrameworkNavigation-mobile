@@ -32,6 +32,8 @@ const NuevoCliente = () => {
     }
 
     // Generar cliente
+    const cliente = { nombre, telefono, correo, empresa };
+    console.log('Cliente generado:', cliente);
 
     // Guardar cliente en API
 
