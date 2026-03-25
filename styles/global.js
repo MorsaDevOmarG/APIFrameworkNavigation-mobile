@@ -1,4 +1,10 @@
 const globalStyles = {
+  contenedor: {
+    flex: 1,
+    marginTop: 20,
+    marginHorizontal: '2.5%',
+  },
+
   titulo: {
     textAlign: 'center',
     marginTop: 20,

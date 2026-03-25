@@ -4,7 +4,7 @@ import globalStyles from '../styles/global';
 
 const NuevoCliente = () => {
   return (
-    <View>
+    <View style={globalStyles.contenedor}>
       <Headline style={globalStyles.titulo}>Añadir Nuevo Cliente</Headline>
     </View>
   );
