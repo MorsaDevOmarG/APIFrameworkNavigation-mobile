@@ -112,6 +112,11 @@
   - Después ejecutamos en consola:
     - **_json-server nombrearchivo_**, en este ejemplo fue:
       - **_json-server db.json_**
+  - En el navegador abrimos:
+    - **http://localhost:3000/clientes**
+  - En el ENDPOINT tenemos que poner la IP para que el EMULADOR la lea:
+    - **await axios.post('http://10.0.2.2:3000/clientes', cliente);**
+  - Si es el celular en físico tendría que cambiar
 
 - AXIOS
   - **_npm i axios_**
