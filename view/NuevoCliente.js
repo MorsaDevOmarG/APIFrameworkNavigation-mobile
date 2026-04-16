@@ -9,6 +9,7 @@ import {
 } from 'react-native-paper';
 import globalStyles from '../styles/global';
 import { useState } from 'react';
+import axios from 'axios';
 
 const NuevoCliente = () => {
   // Campos form
@@ -19,7 +20,7 @@ const NuevoCliente = () => {
   const [alerta, guardarAlerta] = useState(false);
 
   // Almacenar el cliente
-  const guardarCliente = () => {
+  const guardarCliente = async () => {
     // console.log('Cliente guardado:', { nombre, telefono, correo, empresa });
 
     // Validar
@@ -36,6 +37,14 @@ const NuevoCliente = () => {
     console.log('Cliente generado:', cliente);
 
     // Guardar cliente en API
+    try {
+      // await axios.post('http://localhost:3000/clientes', cliente);
+      // await axios.post('http://10.0.2.2:3000/clientes', cliente);
+
+      await axios.post('http://10.0.2.2:3000/clientes', cliente);
+    } catch (error) {
+      console.log(error);
+    }
 
     // Redireccionar
 
@@ -64,6 +73,7 @@ const NuevoCliente = () => {
         value={telefono}
         onChangeText={text => guardarTelefono(text)}
         style={styles.input}
+        keyboardType="phone-pad"
       />
 
       <TextInput
@@ -72,6 +82,7 @@ const NuevoCliente = () => {
         value={correo}
         onChangeText={text => guardarCorreo(text)}
         style={styles.input}
+        keyboardType="email-address"
       />
 
       <TextInput
