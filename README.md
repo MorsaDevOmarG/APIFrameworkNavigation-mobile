@@ -84,6 +84,7 @@
     - **_import { createNativeStackNavigator } from '@react-navigation/native-stack';_**
 
 - Frameworks
+
   - Actualmente hemos escrito todo el código para la apariencia de nuestra app.
   - Existe una gran cantidad de _framrworks_ para la _UI_ de una app móvil.
   - Estos _frameworks_ tienen elementos comúnes para el diseño de tus apps como: _CARDS, BUTTONS, FORMS, etc_.
@@ -103,4 +104,11 @@
         - Buscamos un **APPLY**, en este proyecto encontramos solo: **APPLY PLUGINS**, debajo de esos ponemos esa línea.
     - **Native Base**
     - **React Native Elements**
+  -
+
+- JSON-SERVER
+  - **_npm i -g json-server_**
+  - Después ejecutamos en consola:
+    - **_json-server nombrearchivo_**, en este ejemplo fue:
+      - **_json-server db.json_**
   -
