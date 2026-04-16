@@ -11,7 +11,7 @@ import globalStyles from '../styles/global';
 import { useState } from 'react';
 import axios from 'axios';
 
-const NuevoCliente = () => {
+const NuevoCliente = ({ navigation }) => {
   // Campos form
   const [nombre, guardarNombre] = useState('');
   const [telefono, guardarTelefono] = useState('');
@@ -43,16 +43,20 @@ const NuevoCliente = () => {
 
       await axios.post('http://10.0.2.2:3000/clientes', cliente);
     } catch (error) {
-      console.log(error);
+      console.log('ERROR RED:', error.message);
     }
 
     // Redireccionar
+    navigation.navigate('Inicio');
+    // navigation.goBack();
 
     // Limpiar el form
     guardarNombre('');
     guardarTelefono('');
     guardarCorreo('');
     guardarEmpresa('');
+
+    console.log('DESPUES DEL POST');
   };
 
   return (
