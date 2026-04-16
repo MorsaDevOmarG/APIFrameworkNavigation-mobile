@@ -107,8 +107,12 @@
   -
 
 - JSON-SERVER
+
   - **_npm i -g json-server_**
   - Después ejecutamos en consola:
     - **_json-server nombrearchivo_**, en este ejemplo fue:
       - **_json-server db.json_**
+
+- AXIOS
+  - **_npm i axios_**
   -
