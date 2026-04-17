@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { List } from 'react-native-paper';
+import { Headline, List } from 'react-native-paper';
+import globalStyles from '../styles/global';
 
 const Inicio = () => {
   const [clientes, guardarClientes] = useState([]);
@@ -23,7 +24,10 @@ const Inicio = () => {
   }, []);
 
   return (
-    <View>
+    <View style={globalStyles.contenedor}>
+      <Headline style={globalStyles.titulo}>
+        {clientes.length > 0 ? 'Clientes' : 'No hay clientes'}
+      </Headline>
       <FlatList
         keyExtractor={cliente => cliente.id.toString()}
         data={clientes}
