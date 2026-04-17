@@ -47,7 +47,11 @@ const Inicio = ({ navigation }) => {
         keyExtractor={cliente => cliente.id.toString()}
         data={clientes}
         renderItem={({ item }) => (
-          <List.Item title={item.nombre} description={item.empresa} />
+          <List.Item
+            title={item.nombre}
+            description={item.empresa}
+            onPress={() => navigation.navigate('DetallesCliente', { item })}
+          />
         )}
       />
 
