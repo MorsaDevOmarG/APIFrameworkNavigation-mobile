@@ -48,18 +48,35 @@ const NuevoCliente = ({ navigation, route }) => {
     const cliente = { nombre, telefono, correo, empresa };
     console.log('Cliente generado:', cliente);
 
-    // Guardar cliente en API
-    try {
-      // await axios.post('http://localhost:3000/clientes', cliente);
-      // await axios.post('http://10.0.2.2:3000/clientes', cliente);
+    // Editar o Crear nuevo Cliente
+    if (route.params.cliente) {
+      const { id } = route.params.cliente;
+      cliente.id = id;
+      const url = `http://10.0.2.2:3000/clientes/${id}`;
 
-      await axios.post('http://10.0.2.2:3000/clientes', cliente, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-    } catch (error) {
-      console.log('ERROR RED:', error.message);
+      try {
+        await axios.put(url, cliente, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+      } catch (error) {
+        console.log('ERROR RED:', error.message);
+      }
+    } else {
+      // Guardar cliente en API
+      try {
+        // await axios.post('http://localhost:3000/clientes', cliente);
+        // await axios.post('http://10.0.2.2:3000/clientes', cliente);
+
+        await axios.post('http://10.0.2.2:3000/clientes', cliente, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+      } catch (error) {
+        console.log('ERROR RED:', error.message);
+      }
     }
 
     // Redireccionar
