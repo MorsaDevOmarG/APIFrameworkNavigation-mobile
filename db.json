@@ -6,6 +6,13 @@
       "correo": "omar@correo.com",
       "empresa": "Gmm",
       "id": 1
+    },
+    {
+      "nombre": "Juan",
+      "telefono": "33",
+      "correo": "correo@corrro.com",
+      "empresa": "Clic",
+      "id": 2
     }
   ]
 }

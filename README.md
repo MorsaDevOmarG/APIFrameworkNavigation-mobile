@@ -117,6 +117,11 @@
   - En el ENDPOINT tenemos que poner la IP para que el EMULADOR la lea:
     - **await axios.post('http://10.0.2.2:3000/clientes', cliente);**
   - Si es el celular en físico tendría que cambiar
+  - Ejecute lo siguiente para que funcionará:
+    - _json-server --watch db.json --host 0.0.0.0 --port 3000_
+  - En el navegador:
+    - **http://192.168.100.7:3000/clientes**
+  - Con esto ya me guarda los clientes
 
 - AXIOS
   - **_npm i axios_**

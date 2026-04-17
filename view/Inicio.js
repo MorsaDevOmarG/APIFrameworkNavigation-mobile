@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
+import { List } from 'react-native-paper';
 
 const Inicio = () => {
   const [clientes, guardarClientes] = useState([]);
@@ -23,7 +24,13 @@ const Inicio = () => {
 
   return (
     <View>
-      <Text>Desde Inicio</Text>
+      <FlatList
+        keyExtractor={cliente => cliente.id.toString()}
+        data={clientes}
+        renderItem={({ item }) => (
+          <List.Item title={item.nombre} description={item.empresa} />
+        )}
+      />
     </View>
   );
 };

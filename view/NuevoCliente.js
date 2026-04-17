@@ -41,7 +41,11 @@ const NuevoCliente = ({ navigation }) => {
       // await axios.post('http://localhost:3000/clientes', cliente);
       // await axios.post('http://10.0.2.2:3000/clientes', cliente);
 
-      await axios.post('http://10.0.2.2:3000/clientes', cliente);
+      await axios.post('http://10.0.2.2:3000/clientes', cliente, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
     } catch (error) {
       console.log('ERROR RED:', error.message);
     }
