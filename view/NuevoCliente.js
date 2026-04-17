@@ -11,7 +11,9 @@ import globalStyles from '../styles/global';
 import { useState } from 'react';
 import axios from 'axios';
 
-const NuevoCliente = ({ navigation }) => {
+const NuevoCliente = ({ navigation, route }) => {
+  const { guardarConsultarApi } = route.params;
+
   // Campos form
   const [nombre, guardarNombre] = useState('');
   const [telefono, guardarTelefono] = useState('');
@@ -61,6 +63,8 @@ const NuevoCliente = ({ navigation }) => {
     guardarEmpresa('');
 
     console.log('DESPUES DEL POST');
+
+    guardarConsultarApi(true);
   };
 
   return (

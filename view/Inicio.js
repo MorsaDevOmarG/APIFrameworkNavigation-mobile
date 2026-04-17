@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
-import { Headline, List } from 'react-native-paper';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Button, FAB, Headline, List } from 'react-native-paper';
 import globalStyles from '../styles/global';
 
-const Inicio = () => {
+const Inicio = ({ navigation }) => {
   const [clientes, guardarClientes] = useState([]);
+  const [consultarApi, guardarConsultarApi] = useState(true);
 
   useEffect(() => {
     console.log('Componente Inicio montado');
@@ -14,20 +15,34 @@ const Inicio = () => {
       try {
         const resultado = await axios.get('http://10.0.2.2:3000/clientes');
         console.log('Clientes obtenidos:', resultado.data);
+
         guardarClientes(resultado.data);
+        guardarConsultarApi(false);
       } catch (error) {
         console.log('ERROR RED:', error.message);
       }
     };
 
-    obtenerClientesApi();
-  }, []);
+    if (consultarApi) {
+      obtenerClientesApi();
+    }
+  }, [consultarApi]);
 
   return (
     <View style={globalStyles.contenedor}>
+      <Button
+        icon="plus-circle"
+        onPress={() =>
+          navigation.navigate('NuevoCliente', { guardarConsultarApi })
+        }
+      >
+        Nuevo Cliente
+      </Button>
+
       <Headline style={globalStyles.titulo}>
         {clientes.length > 0 ? 'Clientes' : 'No hay clientes'}
       </Headline>
+
       <FlatList
         keyExtractor={cliente => cliente.id.toString()}
         data={clientes}
@@ -35,8 +50,25 @@ const Inicio = () => {
           <List.Item title={item.nombre} description={item.empresa} />
         )}
       />
+
+      <FAB
+        icon="plus"
+        style={styles.fab}
+        onPress={() =>
+          navigation.navigate('NuevoCliente', { guardarConsultarApi })
+        }
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  fab: {
+    position: 'absolute',
+    margin: 20,
+    right: 0,
+    bottom: 20,
+  },
+});
 
 export default Inicio;
