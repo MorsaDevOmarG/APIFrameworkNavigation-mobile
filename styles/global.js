@@ -11,6 +11,13 @@ const globalStyles = {
     marginBottom: 30,
     fontSize: 30,
   },
+
+  fab: {
+    position: 'absolute',
+    margin: 20,
+    right: 0,
+    bottom: 20,
+  },
 };
 
 export default globalStyles;

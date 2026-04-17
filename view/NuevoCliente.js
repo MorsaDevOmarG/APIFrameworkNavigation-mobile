@@ -8,7 +8,7 @@ import {
   Portal,
 } from 'react-native-paper';
 import globalStyles from '../styles/global';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const NuevoCliente = ({ navigation, route }) => {
@@ -20,6 +20,16 @@ const NuevoCliente = ({ navigation, route }) => {
   const [correo, guardarCorreo] = useState('');
   const [empresa, guardarEmpresa] = useState('');
   const [alerta, guardarAlerta] = useState(false);
+
+  useEffect(() => {
+    if (route.params.cliente) {
+      const { nombre, telefono, correo, empresa } = route.params.cliente;
+      guardarNombre(nombre);
+      guardarTelefono(telefono);
+      guardarCorreo(correo);
+      guardarEmpresa(empresa);
+    }
+  }, [route.params.cliente]);
 
   // Almacenar el cliente
   const guardarCliente = async () => {
