@@ -126,3 +126,14 @@
 - AXIOS
   - **_npm i axios_**
   -
+
+#### Notas
+
+- Generar APK en React Native CLI
+  1. Ir a Android
+     - **cd android**
+  2. Generar APK release
+     - **gradlew assembleRelease**
+  3. Ubicación del APK
+     - Cuando termina:
+     - _android/app/build/outputs/apk/release/app-release.apk_

@@ -50,7 +50,12 @@ const Inicio = ({ navigation }) => {
           <List.Item
             title={item.nombre}
             description={item.empresa}
-            onPress={() => navigation.navigate('DetallesCliente', { item })}
+            onPress={() =>
+              navigation.navigate('DetallesCliente', {
+                item,
+                guardarConsultarApi,
+              })
+            }
           />
         )}
       />

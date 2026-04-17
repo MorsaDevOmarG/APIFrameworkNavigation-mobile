@@ -1,11 +1,14 @@
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import { Button, Headline, Subheading } from 'react-native-paper';
 import globalStyles from '../styles/global';
+import axios from 'axios';
 
-const DetallesCliente = ({ route }) => {
+const DetallesCliente = ({ navigation, route }) => {
   console.log('DetallesCliente - Route:', route.params);
 
-  const { nombre, telefono, correo, empresa } = route.params.item;
+  const { guardarConsultarApi } = route.params;
+
+  const { nombre, telefono, correo, empresa, id } = route.params.item;
 
   const mostrarConfirmacion = () => {
     // console.log('Mostrar confirmación para eliminar cliente');
@@ -23,8 +26,21 @@ const DetallesCliente = ({ route }) => {
     );
   };
 
-  const eliminarContacto = () => {
-    console.log('Cliente eliminado');
+  const eliminarContacto = async () => {
+    console.log('Cliente eliminado', id);
+
+    // const url = `http://localhost:3000/clientes/${id}`;
+    const url = `http://10.0.2.2:3000/clientes/${id}`;
+
+    try {
+      await axios.delete(url);
+    } catch (error) {
+      console.log(error);
+    }
+
+    navigation.navigate('Inicio');
+
+    guardarConsultarApi(true);
   };
 
   return (

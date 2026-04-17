@@ -20,13 +20,6 @@
       "correo": "Heri@correo.com",
       "empresa": "Click",
       "id": 3
-    },
-    {
-      "nombre": "Juan",
-      "telefono": "123",
-      "correo": "Juan@correo.com",
-      "empresa": "Morsa",
-      "id": 4
     }
   ]
 }
